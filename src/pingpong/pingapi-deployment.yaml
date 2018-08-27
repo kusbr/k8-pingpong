@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ping
+spec:
+  selector:
+    matchLabels:
+      name: ping
+      tier: frontend
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        name: ping
+        tier: frontend
+    spec:
+      containers:
+      - name: ping
+        image: "kumsub/pingservice"
+        ports:
+        - name: tcp
+          containerPort: 8090
+        env:
+        - name: SERVER_PORT
+          value: 8090
+        - name: CACHE_TYPE
+          value: redis
+        - name: CACHE_HOST
+          value: 10.0.60.56
+        - name: CACHE_PORT
+          value: 6379

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pingservice
+  labels:
+    name: pingservice
+spec:
+  selector:
+    name: ping 
+    tier: frontend
+  type: LoadBalancer
+  ports:
+   - port: 80
+     targetPort: 8090
+     protocol: TCP

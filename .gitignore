@@ -1,0 +1,6 @@
+src/jenkins/ssh/jenkins-public
+src/jenkins/ssh/jenkins-private.ppk
+src/ping/bin/src/main/java/com/mtc/services/core/PingService.class
+src/ping/bin/src/test/java/com/mtc/services/core/DemoApplicationTests.class
+*.class
+*.ppk
