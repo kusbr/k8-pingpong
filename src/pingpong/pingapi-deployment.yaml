@@ -7,7 +7,7 @@ spec:
     matchLabels:
       name: ping
       tier: frontend
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -26,6 +26,6 @@ spec:
         - name: CACHE_TYPE
           value: redis
         - name: CACHE_HOST
-          value: 10.0.60.56
+          value: redis
         - name: CACHE_PORT
           value: 6379
