@@ -102,7 +102,7 @@
     (5) Setup Jenkins
         (5a)   https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd?view=vsts
 
-        
+        (5b)   https://docs.microsoft.com/en-us/azure/aks/jenkins-continuous-deployment#create-jenkins-project
 
 
 
