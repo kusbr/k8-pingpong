@@ -16,16 +16,16 @@ spec:
     spec:
       containers:
       - name: ping
-        image: "kumsub/pingservice"
+        image: "kumsub/ping:v1"
         ports:
         - name: tcp
           containerPort: 8090
         env:
         - name: SERVER_PORT
-          value: 8090
+          value: "8090"
         - name: CACHE_TYPE
           value: redis
         - name: CACHE_HOST
           value: redis
         - name: CACHE_PORT
-          value: 6379
+          value: "6379"
