@@ -99,6 +99,10 @@
                 ports:
                     - 9090:9090
     
+    (5) Setup Jenkins
+        (5a)   https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd?view=vsts
+
+        
 
 
 
