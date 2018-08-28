@@ -1,6 +1,7 @@
 ﻿# k8-pingpong
 
 (1) Setup Spring-boot Redis dependency 
+    
     (1a) In pom.xml
             <dependency>
                     <groupId>org.springframework.boot</groupId>
@@ -17,7 +18,8 @@
     (2d) java -jar .\target\pong-0.0.1-SNAPSHOT.jar
 
 (3) Docker build
-    (3a) update pom.xml
+   
+   (3a) update pom.xml
     
             (i) under properies, add 
                 <docker.image.prefix>springio</docker.image.prefix>
