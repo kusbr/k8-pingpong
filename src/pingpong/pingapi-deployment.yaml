@@ -18,6 +18,8 @@ spec:
       containers:
       - name: ping
         image: kumsub/ping:${BUILD_NUMBER}
+        command: printenv
+
         ports:
         - name: tcp
           containerPort: 8090

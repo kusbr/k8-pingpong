@@ -150,7 +150,8 @@
                    WEB_IMAGE_NAME="kumsub/ping:${BUILD_NUMBER}"
                     kubectl create --kubeconfig /var/lib/jenkins/workspace/pingpong/kubeconfig -f /var/lib/jenkins/workspace/pingpong/src/pingpong/pingapi-deployment.yaml
 
-jenkins cred
-admin
-knKXToKPgw
-23.99.182.118:8080
+                    OR
+
+                Add build step ->Deploy to Kubernetes
+                    Copy .kube/config onto the jenkins master 
+                    Set the config files as **/src/pingpong/pingapi-deployment*.yaml
