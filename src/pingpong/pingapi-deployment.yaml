@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: ping
-        image: "kumsub/ping:v1"
+        image: $WEB_IMAGE_NAME
         ports:
         - name: tcp
           containerPort: 8090
