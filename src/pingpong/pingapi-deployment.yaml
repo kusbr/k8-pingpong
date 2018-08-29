@@ -18,7 +18,7 @@ spec:
       containers:
       - name: ping
         image: kumsub/ping:${BUILD_NUMBER}
-        command: printenv
+        command: "echo printenv"
 
         ports:
         - name: tcp
