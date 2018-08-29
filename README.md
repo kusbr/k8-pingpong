@@ -147,8 +147,8 @@
             
             (8e) Add build step -> Execute shell
                  # Update kubernetes deployment with new image.
-                    WEB_IMAGE_NAME="kumsub/ping:${BUILD_NUMBER}"
-                    kubectl set image deployment/kube-public/pingapi?namespace=kube-public ping=$WEB_IMAGE_NAME --kubeconfig /var/lib/jenkins/config
+                   WEB_IMAGE_NAME="kumsub/ping:${BUILD_NUMBER}"
+                    kubectl create --kubeconfig /var/lib/jenkins/workspace/pingpong/kubeconfig -f /var/lib/jenkins/workspace/pingpong/src/pingpong/pingapi-deployment.yaml
 
 jenkins cred
 admin
