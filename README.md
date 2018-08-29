@@ -99,12 +99,58 @@
                 ports:
                     - 9090:9090
     
-    (5) Setup Jenkins
-        (5a)   https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd?view=vsts
-
-        (5b)   https://docs.microsoft.com/en-us/azure/aks/jenkins-continuous-deployment#create-jenkins-project
-
-
-
+   
+       (5) DNS
+            az network public-ip update --dns-name kumk8s-ping --ids /subscriptions/61fbc32c-9633-42bf-bfb5-2a8b3aeed21d/resourceGroups/MC_kum-k8s_fabmedical-cluster_centralus/providers/Microsoft.Network/publicIPAddresses/kubernetes-a556399989b2a11e8931c0a58ac1f0fa
   
+            (Use the loadbalancer that points to the public IP of the k8 pingservice)
 
+        (6) Setup Jenkins
+            (6a)   https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd?view=vsts
+
+            (6b)   https://docs.microsoft.com/en-us/azure/aks/jenkins-continuous-deployment#create-jenkins-project
+
+            (6c) Install plugins for github, docker, kubectl
+
+            (6d) Install Plugin Kubernetes Continuous Deploy
+
+
+            If Kubectl is not installed,  use azure cloud CLI and ssh into the jenkins server
+
+            
+                sudo apt-get update && sudo apt-get install -y apt-transport-https
+                curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+                sudo touch /etc/apt/sources.list.d/kubernetes.list 
+                echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+                sudo apt-get update
+                sudo apt-get install -y kubectl
+
+        (7) In github project settings, set up integrations and services:
+
+            (7a) Jenkins github
+                 webhook url -> http://13.78.142.94:8080/github-webhook/
+
+        (8) Jenkins Job
+
+            (8a) github project -> Project URL (not the repo git link) e.g.  https://github.com/kusbr/k8-pingpong/
+        
+            (8b) Source code management -> repo .git url
+
+            (8c) Build Triggers
+                 GitSCM Polling
+
+            (8d) Add build step -> Execute shell
+                WEB_IMAGE_NAME="{docker registry server}/ping:${BUILD_NUMBER}"
+                docker build -t $WEB_IMAGE_NAME ./src/ping/
+                docker login -u <username> -p <password>
+                docker push $WEB_IMAGE_NAME
+            
+            (8e) Add build step -> Execute shell
+                 # Update kubernetes deployment with new image.
+                    WEB_IMAGE_NAME="kumsub/ping:${BUILD_NUMBER}"
+                    kubectl set image deployment/kube-public/pingapi?namespace=kube-public ping=$WEB_IMAGE_NAME --kubeconfig /var/lib/jenkins/config
+
+jenkins cred
+admin
+knKXToKPgw
+23.99.182.118:8080
