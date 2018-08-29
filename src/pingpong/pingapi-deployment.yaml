@@ -18,7 +18,11 @@ spec:
       containers:
       - name: ping
         image: kumsub/ping:${BUILD_NUMBER}
-        command: ["echo", " deployed"]
+        command: "command": [
+              "/bin/sh",
+              "-c",
+              "sleep 60m"
+            ],
 
         ports:
         - name: tcp
