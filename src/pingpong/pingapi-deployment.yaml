@@ -18,6 +18,7 @@ spec:
       containers:
       - name: ping
         image: kumsub/ping:${BUILD_NUMBER}
+        command: ["echo", " deployed"]
 
         ports:
         - name: tcp
