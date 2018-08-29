@@ -22,7 +22,7 @@ spec:
               "/bin/sh",
               "-c",
               "sleep 60m"
-            ],
+            ]
 
         ports:
         - name: tcp
