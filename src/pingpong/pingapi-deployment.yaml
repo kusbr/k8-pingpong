@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ping
+  name: pingapi
   namespace: kube-public
 spec:
   selector:
     matchLabels:
-      name: ping
+      name: pingapi
       tier: frontend
   replicas: 1
   template:
     metadata:
       labels:
-        name: ping
+        name: pingdev
         tier: frontend
     spec:
       containers:
