@@ -18,12 +18,6 @@ spec:
       containers:
       - name: ping
         image: kumsub/ping:${BUILD_NUMBER}
-        command: [
-              "/bin/sh",
-              "-c",
-              "sleep 60m"
-            ]
-
         ports:
         - name: tcp
           containerPort: 8090
