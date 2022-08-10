@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: ping
-        image: kumsub/ping:${BUILD_NUMBER}
+        image: kumsub/ping:v1
         ports:
         - name: tcp
           containerPort: 8090
