@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: pingapi
-  namespace: kube-public
+  namespace: pingpong
 spec:
   selector:
     matchLabels:
