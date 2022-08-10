@@ -11,6 +11,6 @@ spec:
     tier: frontend
   type: NodePort
   ports:
-   - port: 8090
+   - port: 32500
      targetPort: 8090
      protocol: TCP
