@@ -1,4 +1,4 @@
-﻿# k8-pingpong sample
+﻿# k8-pingpong sample for webhook test
 
 (1) Setup Spring-boot Redis dependency 
     
