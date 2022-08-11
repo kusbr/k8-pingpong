@@ -1,4 +1,4 @@
-﻿# k8-pingpong
+﻿# k8-pingpong sample
 
 (1) Setup Spring-boot Redis dependency 
     
